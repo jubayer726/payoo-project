@@ -12,9 +12,9 @@ addEventListener('click', function(e){
     const pinValueCon = parseInt(pinValue);
     
     if( mobileNumber === mobileNumberValueConv && pin === pinValueCon){
-        console.log('All value match');
+        window.location.href="./home.html"
     }
     else{
-        console.log('Invalid Credentials');
+        alert('Invalid Credentials');
     }
 })
