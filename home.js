@@ -1,3 +1,5 @@
+const pinNumber = 1234;
+
 document.getElementById('btn-add-money').
 addEventListener('click', function(){
     
@@ -8,6 +10,15 @@ addEventListener('click', function(){
 
     const availableBalance = parseInt(document.getElementById('available-balance').innerText)
     
+    if(account.length < 11 ){
+        alert('Please input valid account number');
+        return;
+    }
+    if(pin != pinNumber ){
+        alert('Wrong your account or pin number')
+        return;
+    }
+
     const totalAvailableBalance = availableBalance + amount;
     document.getElementById('available-balance').innerText = totalAvailableBalance;
 })
