@@ -15,10 +15,23 @@ addEventListener('click', function(){
         return;
     }
     if(pin != pinNumber ){
-        alert('Wrong your account or pin number')
+        alert('Wrong account number or pin number')
         return;
     }
 
     const totalAvailableBalance = availableBalance + amount;
     document.getElementById('available-balance').innerText = totalAvailableBalance;
+})
+
+// Cash Out Section
+
+document.getElementById('add-money-btn').addEventListener('click', function(){
+    document.getElementById('cashout-section').style.display = 'none'
+    document.getElementById('addmoney-section').style.display = 'block'
+})
+
+document.getElementById('cash-out-btn').
+addEventListener('click', function(){
+    document.getElementById('cashout-section').style.display = 'block'
+    document.getElementById('addmoney-section').style.display = 'none'
 })
