@@ -24,6 +24,29 @@ addEventListener('click', function(){
 })
 
 // Cash Out Section
+document.getElementById('btn-withdraw').addEventListener('click', function(){
+    
+    const outAmout = parseInt(document.getElementById('out-amount').value)
+    const outAvailableBalance = document.getElementById('available-balance').innerText;
+    const outAccount = document.getElementById('out-account').value
+    const outPin = document.getElementById('out-pin').value;
+
+    if(outAccount.length < 11){
+        alert('Please Enter valid Account Number')
+        return;
+    }
+    if(pinNumber != outPin ){
+        alert('Wrong account number or pin number')
+        return;
+    }
+
+    const totalAvailableBalance = outAvailableBalance - outAmout;
+
+    document.getElementById('available-balance').innerText = totalAvailableBalance;
+}) 
+
+
+// Toggling feature
 
 document.getElementById('add-money-btn').addEventListener('click', function(){
     document.getElementById('cashout-section').style.display = 'none'
