@@ -36,23 +36,27 @@
         <p class="text-[#08080880] pl-5 pr-5 pb-5 ">Enjoy easy and convenient financial services with us. Cashout charge is low and </p>
     </div>
 
-    <div class="m-3 grid grid-cols-3 gap-4 p-3 text-[#08080880]">
+    <div class="m-3 rounded-2xl grid grid-cols-3 gap-4 p-3 text-[#08080880]">
         <div id="add-money-btn" class="border border-gray-300 text-center p-3 rounded-xl">
             <img class="mx-auto" src="./photos/wallet1.png" alt="add money">
             <h2>Add Money</h2>
         </div>
+
          <div id="cash-out-btn" class="border border-gray-300 text-center p-3 rounded-xl">
             <img class="mx-auto" src="./photos/send1.png" alt="add money">
             <h2>Cashout</h2>
         </div>
-         <div class="border border-gray-300 text-center p-3 rounded-xl">
+
+         <div id="transfer-btn" class="border border-gray-300 text-center p-3 rounded-xl">
             <img class="mx-auto" src="./photos/money1.png" alt="add money">
             <h2>Transfer Money</h2>
         </div>
-         <div class="border border-gray-300 text-center p-3 rounded-xl">
+
+         <div id="bonus-btn" class="border border-gray-300 text-center p-3 rounded-xl">
             <img class="mx-auto" src="./photos/bonus1.png" alt="add money">
             <h2>Get Bonus</h2>
         </div>
+
          <div class="border border-gray-300 text-center p-3 rounded-xl">
             <img class="mx-auto" src="./photos/purse1.png" alt="add money">
             <h2>Pay Bill</h2>
@@ -66,7 +70,7 @@
     </div>
 
     <!-- Add monoy section -->
-    <div id="addmoney-section" style="display: none;">
+    <div class="form" id="addmoney-section" style="display: none;">
        <div>
         <h1 class="font-bold text-2xl p-5">Add Money</h1>
         </div>
@@ -98,7 +102,7 @@
     </div>
 
     <!-- Cash Out section -->
-    <div id="cashout-section" style="display: none;">
+    <div class="form" id="cashout-section" style="display: none;">
        <div>
         <h1 class="font-bold text-2xl p-5">Cash Out</h1>
         </div>
@@ -121,13 +125,13 @@
     </div>
 
     <!-- Transfer Money -->
-    <div id="transfer-section" style="display: none;">
+    <div class="form" id="transfer-section" style="display: none;">
        <div>
-        <h1 class="font-bold text-2xl p-5">Cash Out</h1>
+        <h1 class="font-bold text-2xl p-5">Transfer Money</h1>
         </div>
         <div class="bg-white m-5 p-5 rounded-3xl">
             <div>
-                <label class="font-semibold m-5"> Agent Number</label><br>
+                <label class="font-semibold m-5"> User Account Number</label><br>
                 <input id="out-account" class="text-[#08080880] rounded-3xl bg-[#f4f5f7] p-3 m-3 w-full" type="number" placeholder="Enter 11 digit account number">
             </div>
             <div>
@@ -138,7 +142,22 @@
                 <label class="font-semibold m-5">Pin Number</label><br>
                 <input id="out-pin" class="text-[#08080880] w-full rounded-3xl bg-[#f4f5f7] p-3 m-3" type="number" placeholder="Enter 4 digit pin number">
             </div>
-            <button id="btn-withdraw" class="btn bg-[#0874f2] text-white font-semibold m-3 w-full rounded-3xl p-3" id="login">Withdraw Money
+            <button id="btn-withdraw" class="btn bg-[#0874f2] text-white font-semibold m-3 w-full rounded-3xl p-3" id="login">Send Now
+            </button>
+        </div>
+    </div>
+    <!-- Get Bonus -->
+    <div class="form" id="bonus-section" style="display: none;">
+       <div>
+        <h1 class="font-bold text-2xl p-5">Get Nonus</h1>
+        </div>
+        <div class="bg-white m-5 p-5 rounded-3xl">
+            <div>
+                <label class="font-semibold m-5"> Enter Bonus Copon</label><br>
+                <input id="out-account" class="text-[#08080880] rounded-3xl bg-[#f4f5f7] p-3 m-3 w-full" type="number" placeholder="Enter your copon">
+            </div>
+            
+            <button id="btn-withdraw" class="btn bg-[#0874f2] text-white font-semibold m-3 w-full rounded-3xl p-3" id="login">Send Now
             </button>
         </div>
     </div>
