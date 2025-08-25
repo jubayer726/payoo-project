@@ -1,12 +1,12 @@
 const pinNumber = 1234;
+const transectionsData = [];
 
 // Get innerText to available balance
-function getInnerTex (id){
-    const element = document.getElementById(id)
-    const elementValue = parseInt(element.innerText)
-    return elementValue;
-
-}
+// function getInnerTex (id){
+//     const element = document.getElementById(id)
+//     const elementValue = parseInt(element.innerText)
+// //     return elementValue;
+// }
 
 //function for Toggling section
 function handletoggle(id){
@@ -36,7 +36,7 @@ addEventListener('click', function(){
     const amount = parseInt(document.getElementById('amount').value)
     const pin = document.getElementById('pin').value;
 
-    const availableBalance = elementValue('available-balance')
+    const availableBalance = parseInt(document.getElementById('available-balance').innerText)
     
     if(account.length < 11 ){
         alert('Please input valid account number');
@@ -49,6 +49,14 @@ addEventListener('click', function(){
 
     const totalAvailableBalance = availableBalance + amount;
     document.getElementById('available-balance').innerText = totalAvailableBalance;
+
+    const data = {
+        name: "Add Money",
+        date: new Date().toLocaleTimeString()
+    }
+    transectionsData.push(data);
+
+
 })
 
 // Cash Out Section
@@ -56,8 +64,8 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
     
     const outAmout = parseInt(document.getElementById('out-amount').value)
 
-    const outAvailableBalance = elementValue('available-balance')
-    //document.getElementById('available-balance').innerText;
+    const availableBalance = parseInt(document.getElementById('available-balance').innerText)
+
     const outAccount = document.getElementById('out-account').value
     const outPin = document.getElementById('out-pin').value;
 
@@ -70,13 +78,46 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
         return;
     }
 
-    const totalAvailableBalance = outAvailableBalance - outAmout;
+    const totalAvailableBalance = availableBalance - outAmout;
 
     document.getElementById('available-balance').innerText = totalAvailableBalance;
+    
+    const data = {
+        name: "Cash Out",
+        date: new Date().toLocaleTimeString()
+    }
+    transectionsData.push(data);
+    
 }) 
 
 
-// Toggling feature
+document.getElementById('transsaction-btn').addEventListener('click', function(){
+    document.getElementById("transection-contrainer").addEventListener('click', function(){
+        const transectionContrainer = document.getElementById("transection-contrainer")
+        for(const transection of transectionsData){
+            const div = document.createElement("div")
+            div.innerHTML =`
+            <div class="bg-white m-5 rounded-3xl p-3 flex justify-between   items-center">
+                <div class="flex items-center">
+                    <div>
+                    <img class= "bg-[#f4f5f7] p-3 m-2 rounded-full" src="./photos/wallet1.png" alt="add money">
+                </div>
+                <div>
+                    <h2>${data.name}</h2>
+                    <p class="text-[#08080880]">${data.date}</p>
+                </div>
+                </div>
+                <div>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </div>
+            `
+            transectionContrainer.appendChild(div)
+        }
+    })
+})
+
+// // Toggling feature
 
 document.getElementById('add-money-btn').addEventListener('click', function(){
    handletoggle('addmoney-section');
@@ -101,4 +142,9 @@ document.getElementById('bonus-btn').addEventListener('click', function(){
 document.getElementById('pay-btn').addEventListener('click', function(){
      handletoggle('bill-section')
       handletogglebtn('pay-btn')
+})
+
+document.getElementById('transsaction-btn').addEventListener('click', function(){
+    handletoggle('transection-section')
+    handletogglebtn('transsaction-btn')
 })
